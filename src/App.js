@@ -10,7 +10,7 @@ function App() {
   const [input, setInput] = useState()
   const [sendInput, setSendInput] = useState()
   const [toggle, setToggle] = useState(true)
-
+  const textRef = useRef(null)
   useEffect(() => {
     const getData = () => {
       
@@ -18,7 +18,7 @@ function App() {
       .then((response) => {
         // console.log('data!!!', response.data.statuses[0].created_at);
         console.log(response.data);
-        setServerData(response.data)
+        setServerData({...response.data})
 
       })
       .then(setToggle(true))
@@ -35,11 +35,14 @@ function App() {
     e.preventDefault()
     // setSendInput(input)
     // console.log(sendInput);
+    console.log(textRef.current.value);
+    let inputValue = textRef.current.value
+    setInput(inputValue)
     try {
       const inputData = {
-        input
+        inputValue
       }
-      console.log(input);
+      console.log(inputValue);
       await axios.post("http://localhost:8000/search", inputData)
       .then(setToggle(false))
       console.log('toggle:',toggle);
@@ -48,6 +51,7 @@ function App() {
 
     }
   }
+  console.log("after function INPUT",input);
   const handleClick = async() => {
       await axios.get("http://localhost:8000/update")
       .then((response) => {
@@ -68,7 +72,8 @@ function App() {
       <div className="header">
       <h1 className="title">Search the Tweet</h1>
       <form onSubmit={handleSearch}>
-        <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/>
+        {/* <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/> */}
+        <input className="input" type="text" ref={textRef} />
         {/* <input type="text" onChange={(e) => handleOnChange(e)}/> */}
         <input className="search-btn" type="submit" value="search"/>
       </form>

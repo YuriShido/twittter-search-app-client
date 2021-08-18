@@ -52,7 +52,8 @@ url("./img/hero.jpg");
 }
 .card {
   width: 500px;
-  height: auto;
+  max-height: 250px;
+  /* height: auto; */
   border: 1px none black;
   border-radius: 10px; 
   margin: 1rem;
