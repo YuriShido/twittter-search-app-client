@@ -5,7 +5,7 @@ const TweetCard = ({ serverData }) => {
     return (
         <div className="TweetCard-container">
             {
-                serverData && serverData.statuses.map(tweet => (
+                serverData.search_metadata && serverData.statuses.map(tweet => (
 
                     <div key={tweet.id} className="card clearfix">
                         <div className='user'>

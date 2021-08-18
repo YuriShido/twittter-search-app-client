@@ -1,4 +1,6 @@
 covid-19, vancouver, customer custom search 
+search した後の結果がひとつ前の結果のデータが出てしまう
+
 
 # Getting Started with Create React App
 

@@ -17,15 +17,17 @@ function App() {
       axios.get("http://localhost:8000/")
       .then((response) => {
         // console.log('data!!!', response.data.statuses[0].created_at);
-        console.log(response.data);
-        setServerData({...response.data})
+        console.log('res data: ', response.data);
+        if(response){
+          setServerData({...response.data})
+        }
 
       })
       .then(setToggle(true))
       .catch( err => console.log(err))
       
     }
-    
+
     getData()
     
   }, [input,toggle])
