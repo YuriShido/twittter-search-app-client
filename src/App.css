@@ -8,6 +8,7 @@ url("./img/laptop.jpg");
   /* font-family: 'Ubuntu', sans-serif; */
   font-family: 'Rajdhani', sans-serif;
   font-weight: 500;
+  position: relative;
   /* font-family: 'Play', sans-serif; */
   /* font-family: 'Atkinson Hyperlegible', sans-serif; */
 }
@@ -168,39 +169,15 @@ url("./img/laptop.jpg");
     color: #3acaf1;
   } 
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.copy-right {
+  position: fixed;
+  bottom: 10px;
+  left:0;
+  writing-mode: vertical-lr;
+  z-index: 50;
+  text-orientation: sideways;
+  margin: 5px;
+  color: #585858;
 }
 
 
@@ -237,4 +214,8 @@ url("./img/laptop.jpg");
   .card {
     margin: 0.5rem;
   }
+
+  .copy-right {
+    display: none;
+  } 
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import axios from 'axios'
 // import socketIo from  'socket.io'
@@ -8,7 +8,7 @@ import TweetCard from './component/TweetCard'
 function App() {
   const [serverData, setServerData] = useState({ search_metadata: {}, statuses: [] })
   const [input, setInput] = useState()
-  const [sendInput, setSendInput] = useState()
+  // const [sendInput, setSendInput] = useState()
   const [toggle, setToggle] = useState(true)
   const textRef = useRef(null)
   useEffect(() => {
@@ -35,7 +35,6 @@ function App() {
 
   const handleSearch = async (e) => {
     e.preventDefault()
-    // setSendInput(input)
     // console.log(sendInput);
     console.log(textRef.current.value);
     let inputValue = textRef.current.value
@@ -72,7 +71,7 @@ function App() {
       {/* <div className="header-container"> */}
 
       <div className="header">
-        {/* <h1 className="title">Search the Tweet</h1> */}
+       
         <h1 className="title">find web job tweets</h1>
         <form onSubmit={handleSearch}>
           {/* <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/> */}
@@ -85,22 +84,11 @@ function App() {
         <p className="topic">Search Topic: <span className="topic-name">{serverData.search_metadata.query}</span></p>
         </div>
       </div>
-      {/* </div> */}
-      {/* {
-        serverData ?
-        (serverData.statuses.map(tweet => (
-          <div key={tweet.id}>
-          <p>{tweet.created_at}</p>
-          <p>{tweet.text}</p>
-          </div>
-        ))
-      ) : null
-      } */}
+      
       <div>
         <TweetCard serverData={serverData} />
-
       </div>
-
+      <p className="copy-right">&copy; Find web job tweets 2021, All Right Reserved</p>
     </div>
   );
 }
