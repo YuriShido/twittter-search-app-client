@@ -11,8 +11,11 @@ const TweetCard = ({ serverData }) => {
                         <div className='user'>
                             <img className="icon-img" src={tweet.user.profile_image_url} alt="user-icon"/>
                             <p>{tweet.user.name}</p>
-                            <p className='date'>{new Date(tweet.created_at).toLocaleTimeString()}</p>
-                            {/* {new Date(tweet.created_at).toLocaleDateString()} */}
+                            <div className='date'>
+
+                            <p>{new Date(tweet.created_at).toLocaleTimeString()}</p>
+                            <p>{new Date(tweet.created_at).toLocaleDateString()}</p>
+                            </div>
                         </div>
                         {/* <p>{tweet.retweeted_status.text}</p> */}
                         <p className="text">{tweet.text}</p>

@@ -6,34 +6,34 @@ import TweetCard from './component/TweetCard'
 
 
 function App() {
-  const [serverData, setServerData] = useState ({ search_metadata: {}, statuses: []})
+  const [serverData, setServerData] = useState({ search_metadata: {}, statuses: [] })
   const [input, setInput] = useState()
   const [sendInput, setSendInput] = useState()
   const [toggle, setToggle] = useState(true)
   const textRef = useRef(null)
   useEffect(() => {
     const getData = () => {
-      
-      axios.get("http://localhost:8000/")
-      .then((response) => {
-        // console.log('data!!!', response.data.statuses[0].created_at);
-        console.log('res data: ', response.data);
-        if(response){
-          setServerData({...response.data})
-        }
 
-      })
-      .then(setToggle(true))
-      .catch( err => console.log(err))
-      
+      axios.get("http://localhost:8000/")
+        .then((response) => {
+          // console.log('data!!!', response.data.statuses[0].created_at);
+          console.log('res data: ', response.data);
+          if (response) {
+            setServerData({ ...response.data })
+          }
+
+        })
+        .then(setToggle(true))
+        .catch(err => console.log(err))
+
     }
 
     getData()
-    
-  }, [input,toggle])
-  console.log('data:',serverData);
-  
-  const handleSearch = async(e) => {
+
+  }, [input, toggle])
+  console.log('data:', serverData);
+
+  const handleSearch = async (e) => {
     e.preventDefault()
     // setSendInput(input)
     // console.log(sendInput);
@@ -46,16 +46,16 @@ function App() {
       }
       console.log(inputValue);
       await axios.post("http://localhost:8000/search", inputData)
-      .then(setToggle(false))
-      console.log('toggle:',toggle);
+        .then(setToggle(false))
+      console.log('toggle:', toggle);
     } catch (error) {
-      console.log("Error: ",error.response)
+      console.log("Error: ", error.response)
 
     }
   }
-  console.log("after function INPUT",input);
-  const handleClick = async() => {
-      await axios.get("http://localhost:8000/update")
+  console.log("after function INPUT", input);
+  const handleClick = async () => {
+    await axios.get("http://localhost:8000/update")
       .then((response) => {
         // console.log('data!!!', response.data.statuses[0].created_at);
         setServerData(response.data)
@@ -72,14 +72,18 @@ function App() {
       {/* <div className="header-container"> */}
 
       <div className="header">
-      <h1 className="title">Search the Tweet</h1>
-      <form onSubmit={handleSearch}>
-        {/* <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/> */}
-        <input className="input" type="text" ref={textRef} />
-        {/* <input type="text" onChange={(e) => handleOnChange(e)}/> */}
-        <input className="search-btn" type="submit" value="search"/>
-      </form>
-      <button className="btn" onClick={handleClick}>Web Job</button>
+        {/* <h1 className="title">Search the Tweet</h1> */}
+        <h1 className="title">find web job tweets</h1>
+        <form onSubmit={handleSearch}>
+          {/* <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/> */}
+          <input className="input" type="text" ref={textRef} placeholder="search anything" />
+          {/* <input type="text" onChange={(e) => handleOnChange(e)}/> */}
+          <input className="search-btn" type="submit" value="search" />
+        </form>
+        <div className='topic-box'>
+        <button className="btn" onClick={handleClick}>Web Job <i className="fas fa-laptop-code"></i></button>
+        <p className="topic">Search Topic: <span className="topic-name">{serverData.search_metadata.query}</span></p>
+        </div>
       </div>
       {/* </div> */}
       {/* {
@@ -93,8 +97,8 @@ function App() {
       ) : null
       } */}
       <div>
-      <TweetCard serverData={serverData} />
-      
+        <TweetCard serverData={serverData} />
+
       </div>
 
     </div>

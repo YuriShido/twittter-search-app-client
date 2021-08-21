@@ -1,10 +1,8 @@
 .App {
   height: 100vh;
   /* text-align: center; */
-  background-image: url("./img/hero.jpg"),rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.5);
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-url("./img/hero.jpg");
+  background: linear-gradient(rgba(236, 240, 10, 0.514), rgba(100, 4, 79, 0.1)),
+url("./img/laptop.jpg");
   background-size: cover;
   overflow-y: scroll;
   /* font-family: 'Ubuntu', sans-serif; */
@@ -56,7 +54,7 @@ url("./img/hero.jpg");
   /* height: auto; */
   border: 1px none black;
   border-radius: 10px; 
-  margin: 1rem;
+  margin: 0.7rem;
   padding: 0.5rem;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -76,6 +74,10 @@ url("./img/hero.jpg");
 .date {
   margin-left: auto;
   margin-right: 10px;
+}
+
+.date p {
+  margin: 0;
 }
 
 .text {
@@ -102,11 +104,13 @@ url("./img/hero.jpg");
 	display: block;
 } */
 .input {
-  width: 200px;
+  width: 250px;
   height: 1.5rem;
   font-size: 16px;
   border-radius: 3px;
   border: none;
+  font-family: 'Staatliches', sans-serif;
+
 }
 
 .search-btn {
@@ -129,7 +133,7 @@ url("./img/hero.jpg");
 
 .btn {
   width: auto;
-  /* height: 1.5rem; */
+  height: 1.7rem;
   background-color: yellow;
   padding: 5px 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -139,14 +143,30 @@ url("./img/hero.jpg");
   font-family: 'Ubuntu', sans-serif;
   font-family: 'Rajdhani', sans-serif;
   font-family: 'Staatliches', sans-serif;
-
+  margin-right: 1rem;
 }
 
 .btn:hover {
   background-color: rgb(255, 230, 4);
+}
+
+.topic-box {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+
+.topic {
+  text-align: center;
+  font-family: 'Staatliches', sans-serif;
+  color: white;
 
 }
 
+  .topic-name {
+    font-size: 1.3rem;
+    color: #3acaf1;
+  } 
 
 .App-logo {
   height: 40vmin;
@@ -180,5 +200,41 @@ url("./img/hero.jpg");
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width:770px) {
+  .TweetCard-container {
+    height: 80vh;
+  } 
+
+  .title {
+    margin-bottom: 0;
+  }
+}
+
+@media(max-width: 480px) {
+
+  /* .App {
+    background-position: center;
+  } */
+  .title {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .input {
+    width: 200px;
+    height: 1.5rem;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
+
+  }
+
+  .card {
+    margin: 0.5rem;
   }
 }
