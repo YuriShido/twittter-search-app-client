@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const getData = () => {
 
-      axios.get("http://localhost:8000/")
+      axios.get(`${process.env.REACT_APP_SERVER_URL}`)
         .then((response) => {
           // console.log('data!!!', response.data.statuses[0].created_at);
           console.log('res data: ', response.data);
@@ -44,7 +44,7 @@ function App() {
         inputValue
       }
       console.log(inputValue);
-      await axios.post("http://localhost:8000/search", inputData)
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/search`, inputData)
         .then(setToggle(false))
       console.log('toggle:', toggle);
     } catch (error) {
@@ -54,7 +54,7 @@ function App() {
   }
   console.log("after function INPUT", input);
   const handleClick = async () => {
-    await axios.get("http://localhost:8000/update")
+    await axios.get(`${process.env.REACT_APP_SERVER_URL}/update`)
       .then((response) => {
         // console.log('data!!!', response.data.statuses[0].created_at);
         setServerData(response.data)
