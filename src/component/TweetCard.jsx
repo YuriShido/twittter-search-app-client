@@ -9,7 +9,7 @@ const TweetCard = ({ serverData }) => {
 
                     <div key={tweet.id} className="card clearfix">
                         <div className='user'>
-                            <img className="icon-img" src={tweet.user.profile_image_url} alt="user-icon"/>
+                            <img className="icon-img" src={tweet.user.profile_image_url_https} alt="user-icon"/>
                             <p>{tweet.user.name}</p>
                             <div className='date'>
 
