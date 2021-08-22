@@ -187,7 +187,7 @@ url("./img/laptop.jpg");
   } 
 
   .title {
-    margin-bottom: 0;
+    margin: 10px 0;
   }
 }
 
