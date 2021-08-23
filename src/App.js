@@ -73,16 +73,17 @@ function App() {
       <div className="header">
        
         <h1 className="title">find web job tweets</h1>
+
+        <div className='topic-search'>
         <form onSubmit={handleSearch}>
           {/* <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/> */}
           <input className="input" type="text" ref={textRef} placeholder="search anything" />
           {/* <input type="text" onChange={(e) => handleOnChange(e)}/> */}
           <input className="search-btn" type="submit" value="search" />
         </form>
-        <div className='topic-box'>
         <button className="btn" onClick={handleClick}>Web Job <i className="fas fa-laptop-code"></i></button>
-        <p className="topic">Search Topic: <span className="topic-name">{serverData.search_metadata.query}</span></p>
         </div>
+        <p className="topic">Search Topic: <span className="topic-name">{serverData.search_metadata.query}</span></p>
       </div>
       
       <div>
