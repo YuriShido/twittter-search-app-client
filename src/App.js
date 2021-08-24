@@ -39,6 +39,7 @@ function App() {
     console.log(textRef.current.value);
     let inputValue = textRef.current.value
     setInput(inputValue)
+    if(!inputValue) 
     try {
       const inputData = {
         inputValue
@@ -76,10 +77,10 @@ function App() {
 
         <div className='topic-search'>
         <form onSubmit={handleSearch}>
-          {/* <input className="input" type="text" onChange={(e) => setInput(e.target.value)}/> */}
-          <input className="input" type="text" ref={textRef} placeholder="search anything" />
+          <input className="input" type="text" ref={textRef} placeholder="search anything" required/>
           {/* <input type="text" onChange={(e) => handleOnChange(e)}/> */}
-          <input className="search-btn" type="submit" value="search" />
+          {/* <input className="search-btn" type="submit" value="search" /> */}
+          <button className="search-btn" type='submit'><i className="fas fa-search"></i></button>
         </form>
         <button className="btn" onClick={handleClick}>Web Job <i className="fas fa-laptop-code"></i></button>
         </div>
