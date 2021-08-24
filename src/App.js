@@ -39,7 +39,6 @@ function App() {
     console.log(textRef.current.value);
     let inputValue = textRef.current.value
     setInput(inputValue)
-    if(!inputValue) 
     try {
       const inputData = {
         inputValue
