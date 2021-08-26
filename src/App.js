@@ -89,7 +89,7 @@ function App() {
       <div>
         <TweetCard serverData={serverData} />
       </div>
-      <p className="copy-right">&copy; Find web job tweets 2021, All Right Reserved</p>
+      <p className="copy-right">&copy; Find web job tweets 2021, All Rights Reserved</p>
     </div>
   );
 }
